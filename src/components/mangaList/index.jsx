@@ -17,7 +17,7 @@ function MangasList(props) {
         <div>
             <Row className="px-4 my-5">
                 {data.map((manga) => (
-                    <div key={manga.id} className="col-md-3 col-lg-3">
+                    <div key={manga.id} className="col-6 col-md-3 col-lg-3">
                         <div>
                             <div className="proj-imgbx" >
                                 <Image className="cover" src={manga.coverPath} />
