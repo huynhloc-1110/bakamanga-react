@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getMangaList } from '../../service/Data.service';
+import "./styles.css"
 
 function CarouselFade() {
     const [mangas, setMangas] = useState([]);
@@ -80,7 +81,6 @@ function CarouselFade() {
             ) : (
                 'Loading...'
             )}
-            &nbsp;
             {/* Pagination controls */}
             <div className="d-flex justify-content-end" style={{ paddingRight: "80px" }}>
                 <Button variant="dark" onClick={previousPage} >

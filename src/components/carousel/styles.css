@@ -1,0 +1,44 @@
+@media (max-width: 420px) {
+  header, nav, section, aside, footer {
+    margin-bottom: 10px;
+  }
+  .col-xl-2 {
+    width: 30%;
+  }
+    .wrapper {
+        display: grid;
+        height: auto;
+        grid-template-areas: "image title title"
+    }
+    .wrapper > img {
+        grid-area: image;
+    }
+    .wrapper > .card-title {
+        grid-area: title;
+    }
+    .coverI {
+        position: relative;
+        max-width: 150px;
+        height: auto;
+    }
+    .position {
+        position: absolute;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 20px;
+        align-items: center;
+      }
+
+    .card-text {
+        display: none;
+    }
+
+    .col {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+}

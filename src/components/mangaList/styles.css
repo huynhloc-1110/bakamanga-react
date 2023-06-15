@@ -21,6 +21,7 @@
     border: black;
     overflow: hidden;
     height: 50vh;
+    width: auto;
     margin-bottom: 24px;
   }
   .proj-imgbx::before {
@@ -66,10 +67,23 @@
     height: 100%;
     width: 100%;
   }
+  @media only screen and (max-width: 375px){
+    .proj-imgbx {
+      width: 25vh;
+      height: auto;
+    }
+  }
 
   @media only screen and (max-width: 400px){
     .proj-imgbx {
-      height: 50vh;
+      width: 158px;
+      height: 30vh;
+    }
+  }
+  @media only screen and (max-width: 900px){
+    .proj-imgbx {
+      width: auto;
+      height: 24vh;
     }
   }
 
