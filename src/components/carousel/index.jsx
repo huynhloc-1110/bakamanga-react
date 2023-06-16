@@ -59,14 +59,14 @@ function CarouselFade() {
             {currentMangas.length > 0 ? (
                 currentMangas.map((manga, index) => (
                     <React.Fragment key={index}>
-                        <Container>
-                            <div className="wrapper">
+                        <Container fluid="xs">
+                            <div className="wrapper" style={{ padding: '15px' }}>
                                 <div style={{ position: 'relative' }}>
                                     <Row>
-                                        <Col xl={2}>
-                                            <Card.Img variant="top" src={manga.coverPath} className="coverI" />
+                                        <Col xl={2} md={2} xs={5}>
+                                            <Card.Img variant="top" src={manga.coverPath} className="coverI" style={{ borderRadius:'30px'}} />
                                         </Col>
-                                        <Col xl={10} style={{ padding: '20px' }}>
+                                        <Col xl={10} md={5} xs={7} style={{ padding: '10px' }}>
                                             <Link to={`/Manga/${manga.id}`} className="card-link">
                                                 <Card.Title>{manga.originalTitle}</Card.Title>
                                             </Link>

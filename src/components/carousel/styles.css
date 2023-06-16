@@ -1,3 +1,10 @@
+.coverI {
+    position: relative;
+    max-width: 100%;
+    width: auto;
+    height: 350px;
+}
+
 @media (max-width: 420px) {
   header, nav, section, aside, footer {
     margin-bottom: 10px;
@@ -8,7 +15,7 @@
     .wrapper {
         display: grid;
         height: auto;
-        grid-template-areas: "image title title"
+        grid-template-areas: "image title title";
     }
     .wrapper > img {
         grid-area: image;
@@ -17,9 +24,7 @@
         grid-area: title;
     }
     .coverI {
-        position: relative;
-        max-width: 150px;
-        height: auto;
+        height: 150px;
     }
     .position {
         position: absolute;
