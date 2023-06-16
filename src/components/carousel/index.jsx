@@ -54,7 +54,7 @@ function CarouselFade() {
     return (
         <div className="Manga-Container">
             <div className='Manga-Container-title'>
-                Most popular
+                <h1>Most popular</h1>
             </div>
             {currentMangas.length > 0 ? (
                 currentMangas.map((manga, index) => (
@@ -68,7 +68,7 @@ function CarouselFade() {
                                         </Col>
                                         <Col xl={10} md={5} xs={7} style={{ padding: '10px' }}>
                                             <Link to={`/Manga/${manga.id}`} className="card-link">
-                                                <Card.Title>{manga.originalTitle}</Card.Title>
+                                                <Card.Title><h2>{manga.originalTitle}</h2></Card.Title>
                                             </Link>
                                             <Card.Text>{manga.description}</Card.Text>
                                         </Col>

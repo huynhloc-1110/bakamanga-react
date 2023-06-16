@@ -2,7 +2,7 @@
     position: relative;
     max-width: 100%;
     width: auto;
-    height: 350px;
+    height: 270px;
 }
 
 @media (max-width: 420px) {
