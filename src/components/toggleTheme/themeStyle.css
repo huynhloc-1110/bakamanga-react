@@ -1,0 +1,18 @@
+:root {
+    --dark-mode-background: #000000;
+    --dark-mode-container: #555555;
+}
+
+
+.Body.context-dark {
+    background-color: var(--dark-mode-background);
+}
+
+.Manga-Container.context-dark{
+    background-color: var(--dark-mode-container);
+    color: white;
+}
+
+.nav-menu.context-dark{
+    background-color: var(--dark-mode-background);
+}
