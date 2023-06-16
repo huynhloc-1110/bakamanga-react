@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getMangaList } from '../../service/Data.service';
 import "./styles.css"
+import { ThemeContext } from "../../components/toggleTheme/themeContext";
+// theme color
+import "../../../src/components/toggleTheme/themeStyle.css";
+
 
 function CarouselFade() {
+    const { theme } = useContext(ThemeContext);
     const [mangas, setMangas] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(1); // Number of items to show per page
@@ -52,7 +57,7 @@ function CarouselFade() {
     };
 
     return (
-        <div className="Manga-Container">
+        <div className={`Manga-Container context-${theme}`}>
             <div className='Manga-Container-title'>
                 <h1>Most popular</h1>
             </div>
