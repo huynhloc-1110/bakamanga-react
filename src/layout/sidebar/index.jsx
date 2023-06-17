@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import "./styles.css";
 import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
-import { Nav, Navbar } from "react-bootstrap";
+import { Button, Nav, Navbar } from "react-bootstrap";
 import React, { useState, useContext } from "react";
+import { FaBars } from 'react-icons/fa';
 import { ThemeContext } from "../../components/toggleTheme/themeContext";
 // theme color
 import "../../../src/components/toggleTheme/themeStyle.css";
@@ -86,9 +87,13 @@ function SideBar(props) {
             backgroundColor: "#FEFEFA",
           }}}
         >
-          <Menu>
+          <Menu menuItemStyles={{
+            label: {
+              color:(theme === "dark" ? "white" : '')
+            },
+          }}>
             <h5 className="sidebar-title">
-              <i className="fa-solid fa-bars" onClick={props.toggleSidebar}></i>
+              <FaBars size={24} color={(theme === 'dark' ? "white" : "black")} onClick={props.toggleSidebar} />
               &nbsp; &nbsp;
               <Navbar.Brand>
               {theme === "dark" ? (

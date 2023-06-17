@@ -21,14 +21,6 @@
     background-color: var(--dark-mode-background);
 }
 
-/* .tagline-p.context-dark{
-    color:#FEFEFA;
-} */
-
 .card-link.context-dark{
     color: #FEFEFA;
-}
-
-.sidebar-heading.context-dark{
-    color: #FEFEFA
 }
