@@ -35,3 +35,12 @@
   .txt-rotate > .wrap {
     border-right: 0.08em solid #666;
   }
+
+  .tagline-p.context-dark{
+    color: #FEFEFA;
+  }
+
+  
+.tagline.context-dark{
+  color:#FEFEFA
+}

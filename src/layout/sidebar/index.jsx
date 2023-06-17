@@ -7,6 +7,9 @@ import { ThemeContext } from "../../components/toggleTheme/themeContext";
 // theme color
 import "../../../src/components/toggleTheme/themeStyle.css";
 
+import darkMode from "../../img/logo/darkMode.png"
+import lightMode from "../../img/logo/lightMode.png"
+
 function SideBar(props) {
   const { theme } = useContext(ThemeContext);
   const [dropdownStates, setDropdownStates] = useState({
@@ -26,7 +29,7 @@ function SideBar(props) {
       section: "browsing",
       heading: (
         <MenuItem
-          className="sidebar-heading"
+          className={`sidebar-heading context-${theme}`}
           onClick={() => handleDropdownClick("browsing")}
           key="browsing-heading"
         >
@@ -52,7 +55,7 @@ function SideBar(props) {
       section: "followes",
       heading: (
         <MenuItem
-          className="sidebar-heading"
+          className={`sidebar-heading context-${theme}`}
           onClick={() => handleDropdownClick("followes")}
           key="followes-heading"
         >
@@ -77,7 +80,7 @@ function SideBar(props) {
         <Sidebar
           rootStyles={theme === "dark" ? {
             [`.${sidebarClasses.container}`]: {
-              backgroundColor: "#555555",
+              backgroundColor: "#2c2c2c",
             },
           } : {[`.${sidebarClasses.container}`]: {
             backgroundColor: "#FEFEFA",
@@ -89,14 +92,21 @@ function SideBar(props) {
               &nbsp; &nbsp;
               <Navbar.Brand>
                 <img
-                  style={{ width: "40px", height: "100%" }}
-                  src={process.env.PUBLIC_URL + "/favicon.ico"}
-                />{" "}
-                3K Manga{" "}
+                  rootStyles={theme === "dark" ? {
+                    [`.${sidebarClasses.image}`]: {
+                      style: { width: "40px", height: "100%" },
+                      src: {darkMode},
+                    },
+                  } : {[`.${sidebarClasses.image}`]: {
+                      style: { width: "40px", height: "100%" },
+                      src: {lightMode},
+                  }}}
+                />{' '}
+                <span className={`Brand context-${theme}`}>3K Manga</span>
               </Navbar.Brand>
             </h5>
             <MenuItem
-              className="sidebar-heading"
+              className={`sidebar-heading context-${theme}`}
               component={<Link to="/" />}
               key="home"
             >

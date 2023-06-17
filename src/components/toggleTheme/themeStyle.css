@@ -1,6 +1,6 @@
 :root {
-    --dark-mode-background: #000000;
-    --dark-mode-container: #555555;
+    --dark-mode-background: #212529;
+    --dark-mode-container: #2c2c2c;
 }
 
 
@@ -13,6 +13,22 @@
     color: white;
 }
 
+.Manga-Container-title.context-dark{
+    color: white;
+}
+
 .nav-menu.context-dark{
     background-color: var(--dark-mode-background);
+}
+
+/* .tagline-p.context-dark{
+    color:#FEFEFA;
+} */
+
+.card-link.context-dark{
+    color: #FEFEFA;
+}
+
+.sidebar-heading.context-dark{
+    color: #FEFEFA
 }
