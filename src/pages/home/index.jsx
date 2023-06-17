@@ -49,8 +49,8 @@ function Home() {
           <Row>
             <Col xs={12} md={6} xl={9}>
               <div style={{ paddingTop: "30px" }}>
-                <span className="tagline">Welcome to 3kManga!</span>
-                <p className="tagline-p ">
+                <span className={`tagline context-${theme}`}>Welcome to 3kManga!</span>
+                <p className={`tagline-p context-${theme}`}>
                   Immerse yourself in an extraordinary assortment of manga.
                   Action, adventure, fantasy, mystery, romance, and
                   more—thousands of manga volumes for every fan!!

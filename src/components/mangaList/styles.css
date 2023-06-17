@@ -87,3 +87,7 @@
     }
   }
 
+  .proj-imgbx.context-dark:before{
+    background: linear-gradient(#808080,#bfbfbf);
+  }
+

@@ -58,7 +58,7 @@ function CarouselFade() {
 
     return (
         <div className={`Manga-Container context-${theme}`}>
-            <div className='Manga-Container-title'>
+            <div className={`Manga-Container-title context-${theme}`}>
                 <h1>Most popular</h1>
             </div>
             {currentMangas.length > 0 ? (
@@ -68,11 +68,11 @@ function CarouselFade() {
                             <div className="wrapper" style={{ padding: '15px' }}>
                                 <div style={{ position: 'relative' }}>
                                     <Row>
-                                        <Col xl={2} md={2} xs={5}>
+                                        <Col xl={2} md={3} xs={5}>
                                             <Card.Img variant="top" src={manga.coverPath} className="coverI" style={{ borderRadius:'30px'}} />
                                         </Col>
-                                        <Col xl={10} md={5} xs={7} style={{ padding: '10px' }}>
-                                            <Link to={`/Manga/${manga.id}`} className="card-link">
+                                        <Col xl={10} md={9} xs={7} style={{ padding: '10px' }}>
+                                            <Link to={`/Manga/${manga.id}`} className={`card-link context-${theme}`}>
                                                 <Card.Title><h2>{manga.originalTitle}</h2></Card.Title>
                                             </Link>
                                             <Card.Text>{manga.description}</Card.Text>
@@ -88,12 +88,12 @@ function CarouselFade() {
             )}
             {/* Pagination controls */}
             <div className="d-flex justify-content-end" style={{ paddingRight: "80px" }}>
-                <Button variant="dark" onClick={previousPage} >
+                <Button variant={theme === 'dark' ? 'outline-light' : 'outline-dark'} onClick={previousPage} >
                     <i className="fa-solid fa-chevron-left"></i>
                 </Button>
                 &nbsp;
                 <Button
-                    variant="dark"
+                    variant={theme === 'dark' ? 'outline-light' : 'outline-dark'}
                     onClick={nextPage}
                 >
                     <i className="fa-solid fa-chevron-right"></i>
