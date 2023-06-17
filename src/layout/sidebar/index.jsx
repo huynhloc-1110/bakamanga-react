@@ -91,17 +91,20 @@ function SideBar(props) {
               <i className="fa-solid fa-bars" onClick={props.toggleSidebar}></i>
               &nbsp; &nbsp;
               <Navbar.Brand>
+              {theme === "dark" ? (
+                <>
                 <img
-                  rootStyles={theme === "dark" ? {
-                    [`.${sidebarClasses.image}`]: {
-                      style: { width: "40px", height: "100%" },
-                      src: {darkMode},
-                    },
-                  } : {[`.${sidebarClasses.image}`]: {
-                      style: { width: "40px", height: "100%" },
-                      src: {lightMode},
-                  }}}
-                />{' '}
+                  style={{ width: "40px", height: "100%" }}
+                  src={darkMode}
+                />
+                </>
+                ) : (
+                <img
+                  style={{ width: "40px", height: "100%" }}
+                  src={lightMode}
+                />
+                )}
+                {' '}
                 <span className={`Brand context-${theme}`}>3K Manga</span>
               </Navbar.Brand>
             </h5>
