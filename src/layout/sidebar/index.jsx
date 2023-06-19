@@ -1,21 +1,27 @@
 import { Link } from "react-router-dom";
 import "./styles.css";
-import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
+import {
+  Sidebar,
+  Menu,
+  MenuItem,
+  sidebarClasses,
+  menuClasses,
+} from "react-pro-sidebar";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import React, { useState, useContext } from "react";
-import { FaBars } from 'react-icons/fa';
+import { FaBars } from "react-icons/fa";
 import { ThemeContext } from "../../components/toggleTheme/themeContext";
 // theme color
 import "../../../src/components/toggleTheme/themeStyle.css";
 
-import darkMode from "../../img/logo/darkMode.png"
-import lightMode from "../../img/logo/lightMode.png"
+import darkMode from "../../img/logo/darkMode.png";
+import lightMode from "../../img/logo/lightMode.png";
 
 function SideBar(props) {
   const { theme } = useContext(ThemeContext);
   const [dropdownStates, setDropdownStates] = useState({
     browsing: true,
-    followes: true,
+    follows: true,
   });
 
   const handleDropdownClick = (section) => {
@@ -53,14 +59,14 @@ function SideBar(props) {
       ],
     },
     {
-      section: "followes",
+      section: "follows",
       heading: (
         <MenuItem
           className={`sidebar-heading context-${theme}`}
-          onClick={() => handleDropdownClick("followes")}
-          key="followes-heading"
+          onClick={() => handleDropdownClick("follows")}
+          key="follows-heading"
         >
-          <i className="fa-solid fa-bookmark"></i> &nbsp; Followes
+          <i className="fa-solid fa-bookmark"></i> &nbsp; Follows
         </MenuItem>
       ),
       items: [
@@ -79,37 +85,48 @@ function SideBar(props) {
     <>
       <Nav className={`nav-menu`}>
         <Sidebar
-          rootStyles={theme === "dark" ? {
-            [`.${sidebarClasses.container}`]: {
-              backgroundColor: "#2c2c2c",
-            },
-          } : {[`.${sidebarClasses.container}`]: {
-            backgroundColor: "#FEFEFA",
-          }}}
+          rootStyles={
+            theme === "dark"
+              ? {
+                  [`.${sidebarClasses.container}`]: {
+                    backgroundColor: "#2c2c2c",
+                  },
+                }
+              : {
+                  [`.${sidebarClasses.container}`]: {
+                    backgroundColor: "#FEFEFA",
+                  },
+                }
+          }
         >
-          <Menu menuItemStyles={{
-            label: {
-              color:(theme === "dark" ? "white" : '')
-            },
-          }}>
+          <Menu
+            menuItemStyles={{
+              label: {
+                color: theme === "dark" ? "white" : "",
+              },
+            }}
+          >
             <h5 className="sidebar-title">
-              <FaBars size={24} color={(theme === 'dark' ? "white" : "black")} onClick={props.toggleSidebar} />
+              <FaBars
+                size={24}
+                color={theme === "dark" ? "white" : "black"}
+                onClick={props.toggleSidebar}
+              />
               &nbsp; &nbsp;
               <Navbar.Brand>
-              {theme === "dark" ? (
-                <>
-                <img
-                  style={{ width: "40px", height: "100%" }}
-                  src={darkMode}
-                />
-                </>
+                {theme === "dark" ? (
+                  <>
+                    <img
+                      style={{ width: "40px", height: "100%" }}
+                      src={darkMode}
+                    />
+                  </>
                 ) : (
-                <img
-                  style={{ width: "40px", height: "100%" }}
-                  src={lightMode}
-                />
-                )}
-                {' '}
+                  <img
+                    style={{ width: "40px", height: "100%" }}
+                    src={lightMode}
+                  />
+                )}{" "}
                 <span className={`Brand context-${theme}`}>3K Manga</span>
               </Navbar.Brand>
             </h5>
@@ -129,7 +146,7 @@ function SideBar(props) {
                     key={item.key}
                     className={`nav-text dropdown-item${
                       dropdownStates[menuItem.section] ? " active" : ""
-                    }`}
+                    } context-${theme}`}
                     component={<Link to={item.to} />}
                   >
                     {item.text}
