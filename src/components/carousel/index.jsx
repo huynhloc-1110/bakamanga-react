@@ -69,11 +69,13 @@ function CarouselFade() {
                                 <div style={{ position: 'relative' }}>
                                     <Row>
                                         <Col xl={2} md={3} xs={5}>
-                                            <Card.Img variant="top" src={manga.coverPath} className="coverI" style={{ borderRadius:'30px'}} />
+                                            <Link to={`/Manga/${manga.id}`}>
+                                                <Card.Img variant="top" src={manga.coverPath} className="coverI" style={{ borderRadius:'30px'}} />
+                                            </Link>
                                         </Col>
                                         <Col xl={10} md={9} xs={7} style={{ padding: '10px' }}>
                                             <Link to={`/Manga/${manga.id}`} className={`card-link context-${theme}`}>
-                                                <Card.Title><h2>{manga.originalTitle}</h2></Card.Title>
+                                                <Card.Title><h1>{manga.originalTitle}</h1></Card.Title>
                                             </Link>
                                             <Card.Text>{manga.description}</Card.Text>
                                         </Col>

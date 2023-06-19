@@ -20,6 +20,13 @@ import { ThemeContext } from "../../components/toggleTheme/themeContext";
 // theme color
 import ToggleButton from "../../components/toggleTheme/toggleButton";
 
+import "../../../src/components/toggleTheme/themeStyle.css";
+
+import darkMode from "../../img/logo/darkMode.png";
+import lightMode from "../../img/logo/lightMode.png";
+
+import { FaBars } from 'react-icons/fa';
+
 function Header(props) {
   const { theme } = useContext(ThemeContext);
 
@@ -77,14 +84,23 @@ function Header(props) {
       <Container fluid>
         <div>
           <Navbar.Brand>
-            <i className="fa-solid fa-bars" onClick={props.toggleSidebar}></i>
+            <FaBars size={24} color={(theme === 'dark' ? "white" : "black")} onClick={props.toggleSidebar}/>
           </Navbar.Brand>
           <Navbar.Brand>
-            <img
-              style={{ width: "40px", height: "100%" }}
-              src={process.env.PUBLIC_URL + "/favicon.ico"}
-            />
-            <span style={{ fontWeight: "800" }}>3K Manga </span>
+          {theme === "dark" ? (
+                <>
+                <img
+                  style={{ width: "40px", height: "100%" }}
+                  src={darkMode}
+                />
+                </>
+                ) : (
+                <img
+                  style={{ width: "40px", height: "100%" }}
+                  src={lightMode}
+                />
+                )}
+            <span className={`Brand context-${theme}`} style={{ fontWeight: "800" }}>3K Manga</span>
           </Navbar.Brand>
         </div>
 

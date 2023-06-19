@@ -37,10 +37,9 @@
   }
 
   .tagline-p.context-dark{
-    color: #FEFEFA;
+    color: var(--dark-mode-text);
   }
 
-  
-.tagline.context-dark{
-  color:#FEFEFA
-}
+  .tagline.context-dark{
+  color: var(--dark-mode-text);
+  }

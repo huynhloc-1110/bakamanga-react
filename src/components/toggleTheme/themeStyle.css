@@ -1,6 +1,7 @@
 :root {
     --dark-mode-background: #212529;
     --dark-mode-container: #2c2c2c;
+    --dark-mode-text: #fefefa;
 }
 
 
@@ -10,11 +11,11 @@
 
 .Manga-Container.context-dark{
     background-color: var(--dark-mode-container);
-    color: white;
+    color: var(--dark-mode-text);
 }
 
 .Manga-Container-title.context-dark{
-    color: white;
+    color: var(--dark-mode-text);
 }
 
 .nav-menu.context-dark{
@@ -22,5 +23,21 @@
 }
 
 .card-link.context-dark{
-    color: #FEFEFA;
+    color: var(--dark-mode-text);
 }
+
+.text.context-dark{
+    color: var(--dark-mode-text);
+}
+
+.Brand.context-dark{
+    color: var(--dark-mode-text);
+  }
+
+.sidebar-divider.context-dark{
+  color: var(--dark-mode-text);
+}
+
+.sidebar-heading.context-dark a:hover {
+    background-color: #cc5233 !important;
+  }

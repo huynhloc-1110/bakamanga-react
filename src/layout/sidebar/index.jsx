@@ -120,7 +120,7 @@ function SideBar(props) {
             >
               <i className="fa-solid fa-house"></i> &nbsp; Home
             </MenuItem>
-            <hr className="sidebar-divider" />
+            <hr className={`sidebar-divider context-${theme}`} />
             {menuItems.map((menuItem) => (
               <React.Fragment key={menuItem.section}>
                 {menuItem.heading}
@@ -135,7 +135,7 @@ function SideBar(props) {
                     {item.text}
                   </MenuItem>
                 ))}
-                <hr className="sidebar-divider" />
+                <hr className={`sidebar-divider context-${theme}`} />
               </React.Fragment>
             ))}
           </Menu>
