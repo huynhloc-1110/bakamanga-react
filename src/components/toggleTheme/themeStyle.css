@@ -1,43 +1,54 @@
 :root {
-    --dark-mode-background: #212529;
-    --dark-mode-container: #2c2c2c;
-    --dark-mode-text: #fefefa;
+  --dark-mode-background: #212529;
+  --dark-mode-container: #2c2c2c;
+  --dark-mode-text: #fefefa;
 }
-
 
 .Body.context-dark {
-    background-color: var(--dark-mode-background);
+  background-color: var(--dark-mode-background);
 }
 
-.Manga-Container.context-dark{
-    background-color: var(--dark-mode-container);
-    color: var(--dark-mode-text);
-}
-
-.Manga-Container-title.context-dark{
-    color: var(--dark-mode-text);
-}
-
-.nav-menu.context-dark{
-    background-color: var(--dark-mode-background);
-}
-
-.card-link.context-dark{
-    color: var(--dark-mode-text);
-}
-
-.text.context-dark{
-    color: var(--dark-mode-text);
-}
-
-.Brand.context-dark{
-    color: var(--dark-mode-text);
-  }
-
-.sidebar-divider.context-dark{
+.Manga-Container.context-dark {
+  background-color: var(--dark-mode-container);
   color: var(--dark-mode-text);
 }
 
-.sidebar-heading.context-dark a:hover {
-    background-color: #cc5233 !important;
-  }
+.Manga-Container-title.context-dark {
+  color: var(--dark-mode-text);
+}
+
+.nav-menu.context-dark {
+  background-color: var(--dark-mode-background);
+}
+
+.card-link.context-dark {
+  color: var(--dark-mode-text);
+}
+
+.text.context-dark {
+  color: var(--dark-mode-text);
+}
+
+.Brand.context-dark {
+  color: var(--dark-mode-text);
+}
+
+.sidebar-divider.context-dark {
+  color: var(--dark-mode-text);
+}
+
+.sidebar-heading.context-dark:hover a {
+  background-color: var(--dark-mode-text) !important;
+}
+
+.sidebar-heading.context-dark:hover .ps-menu-label {
+  color: black;
+}
+
+.dropdown-item.context-dark:hover a {
+    background-color: var(--dark-mode-text) !important;
+}
+
+.dropdown-item.context-dark:hover .ps-menu-label {
+    color: black;
+}
