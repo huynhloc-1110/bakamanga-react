@@ -112,6 +112,7 @@ function Header(props) {
             id={`offcanvasNavbar-expand-false`}
             aria-labelledby={`offcanvasNavbarLabel-expand-false`}
             placement="end"
+            style={{background: theme === 'dark' ? "#2c2c2c" : "white", color: theme === 'dark' ? '#fefefa' : "black"}}
           >
             <Offcanvas.Header
               style={{ textAlign: "center", display: "block" }}
