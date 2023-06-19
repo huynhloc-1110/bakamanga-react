@@ -6,9 +6,12 @@ import { toast, ToastContainer } from 'react-toastify';
 import "../styles.css";
 import { UserContext } from '../../../context/UserContext';
 import { loginAPI } from '../../../service/Data.service';
+import { ThemeContext } from "../../../components/toggleTheme/themeContext";
+// theme color
+import "../../../../src/components/toggleTheme/themeStyle.css";
 
 function Login() {
-
+    const { theme } = useContext(ThemeContext);
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
     const { loginContext, cookies } = useContext(UserContext);
@@ -54,7 +57,7 @@ function Login() {
     return (
         <div className="App">
             <ToastContainer />
-            <div className="Auth-form-container">
+             <div className={`Auth-form-container context-${theme}`}> 
                 <form className="Auth-form">
                     <div className="Auth-form-content">
                         <h3 className="Auth-form-title">Sign In</h3>

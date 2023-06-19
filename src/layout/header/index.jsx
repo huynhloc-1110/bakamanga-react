@@ -111,7 +111,7 @@ function Header(props) {
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-false`}
             aria-labelledby={`offcanvasNavbarLabel-expand-false`}
-            placement="end"
+            placement="end" 
           >
             <Offcanvas.Header
               style={{ textAlign: "center", display: "block" }}
@@ -142,9 +142,19 @@ function Header(props) {
               <Nav>
                 <Row>
                   <Col xl={6}>
+                  {theme === "dark" ? (
+                    <>
+                    <Button className="mb-4 w-100" variant="outline-light">
+                      <i className="fa-solid fa-gear"></i> Settings
+                    </Button>
+                    </>
+                  ):(  
+                    <>
                     <Button className="mb-4 w-100" variant="outline-dark">
                       <i className="fa-solid fa-gear"></i> Settings
                     </Button>
+                    </>
+                  )}
                   </Col>
                   <Col xl={6}>
                     <ToggleButton></ToggleButton>
@@ -155,38 +165,83 @@ function Header(props) {
                     {user.roles == "Admin" && (
                       <>
                         <NavLink to="/manage/Manga">
-                          <Button className="mb-4 w-100" variant="outline-dark">
-                            <i className="fa-solid fa-list-check"></i> Manage
-                            Mangas
-                          </Button>
+                        {theme === "dark" ? (
+                    <>
+                    <Button className="mb-4 w-100" variant="outline-light">
+                      <i className="fa-solid fa-list-check"></i> Manage Mangas
+                    </Button>
+                    </>
+                  ):(  
+                    <>
+                    <Button className="mb-4 w-100" variant="outline-dark">
+                      <i className="fa-solid fa-list-check"></i> Manage Mangas
+                    </Button>
+                    </>
+                  )}
                         </NavLink>
 
                         <NavLink to="/manage/User">
-                          <Button className="mb-4 w-100" variant="outline-dark">
-                            <i className="fa-solid fa-users"></i> Manage Users
-                          </Button>
+                        {theme === "dark" ? (
+                    <>
+                    <Button className="mb-4 w-100" variant="outline-light">
+                      <i className="fa-solid fa-users"></i> Manage Users
+                    </Button>
+                    </>
+                  ):(  
+                    <>
+                    <Button className="mb-4 w-100" variant="outline-dark">
+                      <i className="fa-solid fa-users"></i> Manage Users
+                    </Button>
+                    </>
+                  )}
                         </NavLink>
                       </>
                     )}
-                    <Button
-                      className="mb-4 w-100"
-                      variant="dark"
-                      onClick={handleLogout}
-                    >
+                    {theme === "dark" ? (
+                    <>
+                    <Button className="mb-4 w-100" variant="light" onClick={handleLogout}>
                       Logout
                     </Button>
+                    </>
+                  ):(  
+                    <>
+                    <Button className="mb-4 w-100" variant="dark" onClick={handleLogout}>
+                      Logout
+                    </Button>
+                    </>
+                  )}
                   </>
                 ) : (
                   <>
                     <NavLink to="/login">
-                      <Button className="mb-4 w-100" variant="dark">
-                        Login
-                      </Button>
+                    {theme === "dark" ? (
+                    <>
+                    <Button className="mb-4 w-100" variant="light">
+                      Login
+                    </Button>
+                    </>
+                  ):(  
+                    <>
+                    <Button className="mb-4 w-100" variant="dark">
+                      Login
+                    </Button>
+                    </>
+                  )}
                     </NavLink>
                     <NavLink to="/register">
-                      <Button className="mb-4 w-100" variant="light">
-                        Register
-                      </Button>
+                     {theme === "dark" ? (
+                    <>
+                    <Button className="mb-4 w-100" variant="dark">
+                      Register
+                    </Button>
+                    </>
+                  ):(  
+                    <>
+                    <Button className="mb-4 w-100" variant="light">
+                    Register
+                    </Button>
+                    </>
+                  )}
                     </NavLink>
                   </>
                 )}

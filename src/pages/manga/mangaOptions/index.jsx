@@ -1,14 +1,19 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { Col, Row, Card, Container, Button, FormSelect } from 'react-bootstrap';
 import { getMangas, totalItems } from '../../../service/Data.service';
 import { Link, useSearchParams } from 'react-router-dom';
 import "./styles.css";
 import Pagination from '../../../components/pagination';
+import { ThemeContext } from "../../../components/toggleTheme/themeContext";
+// theme color
+import "../../../../src/components/toggleTheme/themeStyle.css";
+
 
 
 function LatestManga() {
 
+    const { theme } = useContext(ThemeContext);
     const [mangas, setMangas] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [totalMangas, setTotalMangas] = useState(0);
@@ -51,7 +56,7 @@ function LatestManga() {
             <div style={{ paddingTop: "50px" }}>
                 <Row>
                     <Col>
-                        <div className="Manga-Container-title">
+                        <div className={`Manga-Container-title context-${theme}`}>
                             <span>{sortOption === 'LatestManga' ? 'Latest Manga' : 'Latest Chapter'}</span>
                         </div>
                     </Col>
@@ -70,18 +75,19 @@ function LatestManga() {
                     mangas.map((manga, index) => (
                         <React.Fragment key={index}>
                             <Container>
-                                <div className='wrapper'>
-                                    <Card style={{ position: "relative" }}>
+                                <div className="wrapper">
+                                    <Card className={`card-container context-${theme}`} style={{ position: "relative" }}>
                                         <Row>
-                                            <Col xl={2}>
+                                            <Col xl={2} md={3} xs={5}>
+                                                <Link to={`/Manga/${manga.id}`}>
                                                 <Card.Img variant="top" src={manga.coverPath} className='coverI' />
-                                            </Col>
-                                            <Col xl={10} style={{ padding: "20px" }}>
-
-                                                <Link to={`/Manga/${manga.id}`} className='card-link'>
-                                                    <Card.Title>{manga.originalTitle}</Card.Title>
                                                 </Link>
-                                                <Card.Text>{manga.description}</Card.Text>
+                                            </Col>
+                                            <Col xl={10} md={9} xs={7} style={{ padding: "20px" }}>
+                                            <Link to={`/Manga/${manga.id}`} className={`card-link context-${theme}`}>
+                                                <Card.Title><h3>{manga.originalTitle}</h3></Card.Title>
+                                            </Link>
+                                            <Card.Text className={`text context-${theme}`}>{manga.description}</Card.Text>
                                             </Col>
                                         </Row>
                                     </Card>

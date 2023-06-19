@@ -41,3 +41,11 @@
 .sidebar-heading.context-dark a:hover {
     background-color: #cc5233 !important;
   }
+
+.card-container.context-dark{
+    background-color: var(--dark-mode-container);
+}
+
+.Auth-form-container.context-dark{
+    background-color: var(--dark-mode-background);
+}
