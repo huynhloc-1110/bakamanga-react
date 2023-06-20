@@ -21,15 +21,15 @@ function MangaDetail() {
 
 
     const getMangaDetail = async (id) => {
-        await getMangaById(id)
-            .then((result) => {
-                setManga(result.data)
-                console.log(result.data);
-            })
+      try {
+        const result = await getMangaById(id);
+        setManga(result.data);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setManga(null);
+        }
+      }
     };
-
-
-
 
     return (
       <section className="banner" id="home">
@@ -43,17 +43,28 @@ function MangaDetail() {
                       isVisible ? "animate__animated animate__zoomIn" : ""
                     }
                   >
+                    {manga ? (
                     <img
                       src={manga.coverPath}
                       style={{ width: "100%", height: "320px", borderRadius:"30px" }}
+                      alt="Manga Cover"
                     />
+                  ) : (
+                    <p>Cover not found.</p>
+                  )}
                   </div>
                 )}
               </TrackVisibility>
             </Col>
             <Col xs={12} md={6} xl={9}>
-              <h1 className={`text context-${theme}`}>{[manga.originalTitle]}</h1>
-              <p className={`text context-${theme}`}>{manga.description}</p>
+              {manga ? (
+                <>
+                  <h1 className={`text context-${theme}`}>{[manga.originalTitle]}</h1>
+                  <p className={`text context-${theme}`}>{manga.description}</p>
+                </>
+                ) : (
+                  <p>Manga not found.</p>
+                )}
             </Col>
           </Row>
         </Container>

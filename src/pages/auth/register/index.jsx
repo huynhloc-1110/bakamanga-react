@@ -8,12 +8,15 @@ import "../styles.css";
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { useEffect } from 'react';
+import { ThemeContext } from "../../../components/toggleTheme/themeContext";
+// theme color
+import "../../../../src/components/toggleTheme/themeStyle.css";
 
 
 
 function Register() {
 
-
+    const { theme } = useContext(ThemeContext);
     const navigate = useNavigate();
     const { loginContext, cookies } = useContext(UserContext);
     const { user } = useContext(UserContext);
@@ -70,7 +73,7 @@ function Register() {
         <>
             <div className="App">
                 <ToastContainer />
-                <div className="Auth-form-container">
+                <div className={`Auth-form-container context-${theme}`}>
                     <form className="Auth-form">
                         <div className="Auth-form-content">
                             <h3 className="Auth-form-title">Sign Up A New Account</h3>
