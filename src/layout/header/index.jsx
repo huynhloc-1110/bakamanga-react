@@ -25,8 +25,6 @@ import "../../../src/components/toggleTheme/themeStyle.css";
 import darkMode from "../../img/logo/darkMode.png";
 import lightMode from "../../img/logo/lightMode.png";
 
-import { FaBars } from 'react-icons/fa';
-
 function Header(props) {
   const { theme } = useContext(ThemeContext);
 
@@ -84,7 +82,7 @@ function Header(props) {
       <Container fluid>
         <div>
           <Navbar.Brand>
-            <FaBars size={24} color={(theme === 'dark' ? "white" : "black")} onClick={props.toggleSidebar}/>
+            <i className="fa-solid fa-bars" style={{fontSize:"24px", color:(theme === 'dark' ? 'white' : "black")}} onClick={props.toggleSidebar}></i>
           </Navbar.Brand>
           <Navbar.Brand>
           {theme === "dark" ? (

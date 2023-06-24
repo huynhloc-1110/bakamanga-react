@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { createManga, getLanguage, getCategory, getAuthor } from '../../../../service/Data.service';
 import { toast } from 'react-toastify';
-import Multiselect from 'multiselect-react-dropdown';
 
 
 function CreateManga(props) {
@@ -109,28 +108,6 @@ function CreateManga(props) {
                                 type="file"
                                 onChange={(e) => setCoverPath(e.target.files[0])}
                                 required
-                            />
-                        </Col>
-                    </Row> &nbsp;
-                    <Row>
-                        <Col>
-                            <Form.Label>Category</Form.Label>
-                            <Multiselect
-                                isObject={false}
-                                onRemove={(event) => { console.log(event) }}
-                                onSelect={(event) => { console.log(event) }}
-                                options={category.map((cat) => cat.name)}
-                                showCheckbox
-                            />
-                        </Col>
-                        <Col>
-                            <Form.Label>Author</Form.Label>
-                            <Multiselect
-                                isObject={false}
-                                onRemove={(event) => { console.log(event) }}
-                                onSelect={(event) => { console.log(event) }}
-                                options={author.map((aut) => aut.name)}
-                                showCheckbox
                             />
                         </Col>
                     </Row> &nbsp;

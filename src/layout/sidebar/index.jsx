@@ -9,7 +9,6 @@ import {
 } from "react-pro-sidebar";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import React, { useState, useContext } from "react";
-import { FaBars } from "react-icons/fa";
 import { ThemeContext } from "../../components/toggleTheme/themeContext";
 // theme color
 import "../../../src/components/toggleTheme/themeStyle.css";
@@ -107,11 +106,7 @@ function SideBar(props) {
             }}
           >
             <h5 className="sidebar-title">
-              <FaBars
-                size={24}
-                color={theme === "dark" ? "white" : "black"}
-                onClick={props.toggleSidebar}
-              />
+            <i className="fa-solid fa-bars" style={{fontSize:"24px", color:(theme === 'dark' ? 'white' : "black")}} onClick={props.toggleSidebar}></i>
               &nbsp; &nbsp;
               <Navbar.Brand>
                 {theme === "dark" ? (
