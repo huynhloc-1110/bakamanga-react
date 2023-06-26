@@ -106,7 +106,14 @@ function SideBar(props) {
             }}
           >
             <h5 className="sidebar-title">
-            <i className="fa-solid fa-bars" style={{fontSize:"24px", color:(theme === 'dark' ? 'white' : "black")}} onClick={props.toggleSidebar}></i>
+              <i
+                className="fa-solid fa-bars"
+                style={{
+                  fontSize: "24px",
+                  color: theme === "dark" ? "white" : "black",
+                }}
+                onClick={props.toggleSidebar}
+              ></i>
               &nbsp; &nbsp;
               <Navbar.Brand>
                 {theme === "dark" ? (
