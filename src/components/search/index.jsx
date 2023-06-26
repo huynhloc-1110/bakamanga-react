@@ -45,7 +45,10 @@ function SearchBar({ placeholder, data }) {
 
   return (
     <>
-      <Button variant={theme === 'dark' ? 'outline-light' : 'outline-dark'} onClick={handleShow}>
+      <Button
+        variant={theme === "dark" ? "outline-light" : "outline-dark"}
+        onClick={handleShow}
+      >
         <i className="fa-solid fa-magnifying-glass"></i>
       </Button>
 

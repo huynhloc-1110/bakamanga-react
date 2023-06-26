@@ -1,10 +1,8 @@
-import React, { useContext, useEffect } from "react";
 import "./App.css";
 import Body from "./layout/body";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./layout/header";
 import SideBar from "./layout/sidebar";
-import { ThemeProvider } from "./components/toggleTheme/themeContext";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -40,22 +38,20 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider>
-      <div>
-        <div style={{ display: "flex", height: "100%" }}>
-          <div
-            style={{
-              flex: "1",
-              marginLeft: windowWidth > 1080 && isNavMenuOpen ? "230px" : "0",
-            }}
-          >
-            <Body showSidebar={showSidebar} isNavMenuOpen={isNavMenuOpen} />
-          </div>
-          <Header toggleSidebar={toggleSidebar} />
-          {showSidebar && <SideBar toggleSidebar={toggleSidebar} />}
+    <div>
+      <div style={{ display: "flex", height: "100%" }}>
+        <div
+          style={{
+            flex: "1",
+            marginLeft: windowWidth > 1080 && isNavMenuOpen ? "230px" : "0",
+          }}
+        >
+          <Body showSidebar={showSidebar} isNavMenuOpen={isNavMenuOpen} />
         </div>
+        <Header toggleSidebar={toggleSidebar} />
+        {showSidebar && <SideBar toggleSidebar={toggleSidebar} />}
       </div>
-    </ThemeProvider>
+    </div>
   );
 }
 

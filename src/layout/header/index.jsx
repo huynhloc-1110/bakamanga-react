@@ -78,27 +78,38 @@ function Header(props) {
   );
 
   return (
-    <Navbar key={false} expand={false} bg={scrolled ? (theme === "dark" ? "dark": "") : ''} className={scrolled ? 'scrolled' : ''}>
+    <Navbar
+      key={false}
+      expand={false}
+      bg={scrolled ? (theme === "dark" ? "dark" : "") : ""}
+      className={scrolled ? "scrolled" : ""}
+    >
       <Container fluid>
         <div>
           <Navbar.Brand>
-            <i className="fa-solid fa-bars" style={{fontSize:"24px", color:(theme === 'dark' ? 'white' : "black")}} onClick={props.toggleSidebar}></i>
+            <i
+              className="fa-solid fa-bars"
+              style={{
+                fontSize: "24px",
+                color: theme === "dark" ? "white" : "black",
+              }}
+              onClick={props.toggleSidebar}
+            ></i>
           </Navbar.Brand>
           <Navbar.Brand>
-          {theme === "dark" ? (
-                <>
-                <img
-                  style={{ width: "40px", height: "100%" }}
-                  src={darkMode}
-                />
-                </>
-                ) : (
-                <img
-                  style={{ width: "40px", height: "100%" }}
-                  src={lightMode}
-                />
-                )}
-            <span className={`Brand context-${theme}`} style={{ fontWeight: "800" }}>3K Manga</span>
+            {theme === "dark" ? (
+              <>
+                <img style={{ width: "40px", height: "100%" }} src={darkMode} />
+              </>
+            ) : (
+              <img style={{ width: "40px", height: "100%" }} src={lightMode} />
+            )}
+            <span
+              className={`Brand context-${theme}`}
+              style={{ fontWeight: "800" }}
+            >
+              3K Manga
+            </span>
           </Navbar.Brand>
         </div>
 
@@ -110,7 +121,10 @@ function Header(props) {
             id={`offcanvasNavbar-expand-false`}
             aria-labelledby={`offcanvasNavbarLabel-expand-false`}
             placement="end"
-            style={{background: theme === 'dark' ? "#2c2c2c" : "white", color: theme === 'dark' ? '#fefefa' : "black"}}
+            style={{
+              background: theme === "dark" ? "#2c2c2c" : "white",
+              color: theme === "dark" ? "#fefefa" : "black",
+            }}
           >
             <Offcanvas.Header
               style={{ textAlign: "center", display: "block" }}
@@ -141,19 +155,19 @@ function Header(props) {
               <Nav>
                 <Row>
                   <Col xl={6}>
-                  {theme === "dark" ? (
-                    <>
-                    <Button className="mb-4 w-100" variant="outline-light">
-                      <i className="fa-solid fa-gear"></i> Settings
-                    </Button>
-                    </>
-                  ):(  
-                    <>
-                    <Button className="mb-4 w-100" variant="outline-dark">
-                      <i className="fa-solid fa-gear"></i> Settings
-                    </Button>
-                    </>
-                  )}
+                    {theme === "dark" ? (
+                      <>
+                        <Button className="mb-4 w-100" variant="outline-light">
+                          <i className="fa-solid fa-gear"></i> Settings
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button className="mb-4 w-100" variant="outline-dark">
+                          <i className="fa-solid fa-gear"></i> Settings
+                        </Button>
+                      </>
+                    )}
                   </Col>
                   <Col xl={6}>
                     <ToggleButton></ToggleButton>
@@ -164,83 +178,107 @@ function Header(props) {
                     {user.roles == "Admin" && (
                       <>
                         <NavLink to="/manage/Manga">
-                        {theme === "dark" ? (
-                    <>
-                    <Button className="mb-4 w-100" variant="outline-light">
-                      <i className="fa-solid fa-list-check"></i> Manage Mangas
-                    </Button>
-                    </>
-                  ):(  
-                    <>
-                    <Button className="mb-4 w-100" variant="outline-dark">
-                      <i className="fa-solid fa-list-check"></i> Manage Mangas
-                    </Button>
-                    </>
-                  )}
+                          {theme === "dark" ? (
+                            <>
+                              <Button
+                                className="mb-4 w-100"
+                                variant="outline-light"
+                              >
+                                <i className="fa-solid fa-list-check"></i>{" "}
+                                Manage Mangas
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <Button
+                                className="mb-4 w-100"
+                                variant="outline-dark"
+                              >
+                                <i className="fa-solid fa-list-check"></i>{" "}
+                                Manage Mangas
+                              </Button>
+                            </>
+                          )}
                         </NavLink>
 
                         <NavLink to="/manage/User">
-                        {theme === "dark" ? (
-                    <>
-                    <Button className="mb-4 w-100" variant="outline-light">
-                      <i className="fa-solid fa-users"></i> Manage Users
-                    </Button>
-                    </>
-                  ):(  
-                    <>
-                    <Button className="mb-4 w-100" variant="outline-dark">
-                      <i className="fa-solid fa-users"></i> Manage Users
-                    </Button>
-                    </>
-                  )}
+                          {theme === "dark" ? (
+                            <>
+                              <Button
+                                className="mb-4 w-100"
+                                variant="outline-light"
+                              >
+                                <i className="fa-solid fa-users"></i> Manage
+                                Users
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <Button
+                                className="mb-4 w-100"
+                                variant="outline-dark"
+                              >
+                                <i className="fa-solid fa-users"></i> Manage
+                                Users
+                              </Button>
+                            </>
+                          )}
                         </NavLink>
                       </>
                     )}
                     {theme === "dark" ? (
-                    <>
-                    <Button className="mb-4 w-100" variant="light" onClick={handleLogout}>
-                      Logout
-                    </Button>
-                    </>
-                  ):(  
-                    <>
-                    <Button className="mb-4 w-100" variant="dark" onClick={handleLogout}>
-                      Logout
-                    </Button>
-                    </>
-                  )}
+                      <>
+                        <Button
+                          className="mb-4 w-100"
+                          variant="light"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button
+                          className="mb-4 w-100"
+                          variant="dark"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </Button>
+                      </>
+                    )}
                   </>
                 ) : (
                   <>
                     <NavLink to="/login">
-                    {theme === "dark" ? (
-                    <>
-                    <Button className="mb-4 w-100" variant="light">
-                      Login
-                    </Button>
-                    </>
-                  ):(  
-                    <>
-                    <Button className="mb-4 w-100" variant="dark">
-                      Login
-                    </Button>
-                    </>
-                  )}
+                      {theme === "dark" ? (
+                        <>
+                          <Button className="mb-4 w-100" variant="light">
+                            Login
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button className="mb-4 w-100" variant="dark">
+                            Login
+                          </Button>
+                        </>
+                      )}
                     </NavLink>
                     <NavLink to="/register">
-                     {theme === "dark" ? (
-                    <>
-                    <Button className="mb-4 w-100" variant="dark">
-                      Register
-                    </Button>
-                    </>
-                  ):(  
-                    <>
-                    <Button className="mb-4 w-100" variant="light">
-                    Register
-                    </Button>
-                    </>
-                  )}
+                      {theme === "dark" ? (
+                        <>
+                          <Button className="mb-4 w-100" variant="dark">
+                            Register
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button className="mb-4 w-100" variant="light">
+                            Register
+                          </Button>
+                        </>
+                      )}
                     </NavLink>
                   </>
                 )}

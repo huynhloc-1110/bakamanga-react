@@ -1,49 +1,53 @@
 .coverI {
-    position: relative;
-    max-width: 100%;
-    width: auto;
-    height: 270px;
+  position: relative;
+  max-width: 100%;
+  width: auto;
+  height: 270px;
 }
 
 @media (max-width: 420px) {
-  header, nav, section, aside, footer {
+  header,
+  nav,
+  section,
+  aside,
+  footer {
     margin-bottom: 10px;
   }
   .col-xl-2 {
     width: 30%;
   }
-    .wrapper {
-        display: grid;
-        height: auto;
-        grid-template-areas: "image title title";
-    }
-    .wrapper > img {
-        grid-area: image;
-    }
-    .wrapper > .card-title {
-        grid-area: title;
-    }
-    .coverI {
-        height: 150px;
-    }
-    .position {
-        position: absolute;
-    }
-    .grid-container {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-gap: 20px;
-        align-items: center;
-      }
+  .wrapper {
+    display: grid;
+    height: auto;
+    grid-template-areas: "image title title";
+  }
+  .wrapper > img {
+    grid-area: image;
+  }
+  .wrapper > .card-title {
+    grid-area: title;
+  }
+  .coverI {
+    height: 150px;
+  }
+  .position {
+    position: absolute;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+    align-items: center;
+  }
 
-    .card-text {
-        display: none;
-    }
+  .card-text {
+    display: none;
+  }
 
-    .col {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-    }
+  .col {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
 }
