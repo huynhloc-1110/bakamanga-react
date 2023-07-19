@@ -20,21 +20,30 @@ import "./styles.css";
 export default function Header(props) {
   const navigate = useNavigate();
 
-  const [scrolled, setScrolled] = useState(false);
+  const [headerStatus, setHeaderStatus] = useState("top");
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const controlNavBar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        setHeaderStatus("none");
+      } else {
+        setHeaderStatus("show");
+      }
+      setLastScrollY(window.scrollY);
+
+      if (window.scrollY === 0) {
+        setHeaderStatus("top");
+      }
+    }
+  };
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavBar);
+      return () => window.removeEventListener("scroll", controlNavBar);
+    }
+  }, [lastScrollY]);
 
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
   const { logout, user } = useContext(UserContext);
 
   const handleLogout = () => {
@@ -56,7 +65,7 @@ export default function Header(props) {
   );
 
   return (
-    <Navbar key={false} expand={false} className={scrolled ? "scrolled" : ""}>
+    <Navbar key={false} expand={false} className={headerStatus}>
       <Container fluid>
         <div>
           <i

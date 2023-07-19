@@ -34,6 +34,16 @@ nav.navbar {
   transition: 0.32s ease-in-out;
 }
 
-nav.navbar.scrolled {
+nav.navbar.none {
+  display: none;
+}
+
+nav.navbar.show {
+  display: block;
   background-color: white;
+}
+
+nav.navbar.top {
+  display: block;
+  background: none;
 }

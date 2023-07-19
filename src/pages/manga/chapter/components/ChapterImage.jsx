@@ -1,5 +1,4 @@
 import React from "react";
-import ChapterButton from "./ChapterButton";
 
 export default function ChapterImage() {
   return (
@@ -11,7 +10,6 @@ export default function ChapterImage() {
         <br />
         <img className="chapter-image" src="/img/banner/banner.png" alt="" />
         <br />
-        <ChapterButton />
       </div>
     </>
   );

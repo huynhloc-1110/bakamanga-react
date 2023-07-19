@@ -11,3 +11,11 @@
   bottom: 4px;
   font-size: 18px;
 }
+
+.chapter-button {
+  position: fixed;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
