@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./styles.css";
 import CommentSection from "../../../components/comment";
 import {
@@ -40,11 +40,20 @@ export default function MangaDetail() {
     try {
       if (!rate) {
         await postRating(mangaId, formData);
+        setManga((prevManga) => ({
+          ...prevManga,
+          ratingSum: prevManga.ratingSum + Number(eventKey),
+          ratingCount: prevManga.ratingCount + 1,
+        }));
       } else {
         await putRating(mangaId, formData);
+        setManga((prevManga) => ({
+          ...prevManga,
+          ratingSum: prevManga.ratingSum - rate + Number(eventKey),
+          ratingCount: prevManga.ratingCount,
+        }));
       }
       setRate(Number(eventKey));
-      getMangaDetail(mangaId);
     } catch (error) {
       if (error.response && error.response.status === 401) {
         toast.error("Please sign in to rate!", {
@@ -60,8 +69,12 @@ export default function MangaDetail() {
     if (rate !== null) {
       try {
         await deleteRating(mangaId);
+        setManga((prevManga) => ({
+          ...prevManga,
+          ratingSum: prevManga.ratingSum - rate,
+          ratingCount: prevManga.ratingCount - 1,
+        }));
         setRate(null);
-        getMangaDetail(mangaId);
       } catch {
         console.error("Something went wrong!");
       }
@@ -73,11 +86,18 @@ export default function MangaDetail() {
       if (!follow) {
         await postFollow(mangaId);
         setFollow(true);
+        setManga((prevManga) => ({
+          ...prevManga,
+          followCount: prevManga.followCount + 1,
+        }));
       } else {
         await deleteFollow(mangaId);
         setFollow(false);
+        setManga((prevManga) => ({
+          ...prevManga,
+          followCount: prevManga.followCount - 1,
+        }));
       }
-      getMangaDetail(mangaId);
     } catch (error) {
       if (error.response && error.response.status === 401) {
         toast.error("Please sign in to follow!", {

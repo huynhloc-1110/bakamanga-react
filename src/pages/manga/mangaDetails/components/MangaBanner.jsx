@@ -92,7 +92,8 @@ export default function MangaBanner({
                   </Dropdown.Menu>
                   {manga && (
                     <span className="rating-number">
-                      {Math.round(manga.averageRating * 10) / 10}
+                      {Math.round((manga.ratingSum / manga.ratingCount) * 10) /
+                        10}
                     </span>
                   )}
                 </Dropdown>
