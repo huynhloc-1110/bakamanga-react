@@ -12,10 +12,12 @@
   font-size: 18px;
 }
 
+.centered-element-container {
+  display: flex;
+  justify-content: center;
+}
+
 .chapter-button {
   position: fixed;
   top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

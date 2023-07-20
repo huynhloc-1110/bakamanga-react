@@ -41,9 +41,11 @@ export default function ChapterInfo() {
           Sau Khi Có Được Năng Lực Bá Đạo Ở Dị Giới, Tôi Cũng Vô Đối Ở Thế Giới
           Thực: Thăng Cấp Xong Thì Cuộc Đời Cũng Thay Đổi
         </div>
-        <navbar key={false} expand={false} className={buttonStatus}>
-          <ChapterButton />
-        </navbar>
+        <div className="centered-element-container">
+          <div className={buttonStatus}>
+            <ChapterButton />
+          </div>
+        </div>
       </div>
       <br />
     </>
