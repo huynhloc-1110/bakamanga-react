@@ -14,7 +14,7 @@ export default function ChapterInfo() {
       }
       setLastScrollY(window.scrollY);
 
-      if (window.scrollY === 0) {
+      if (window.scrollY <= 58) {
         setButtonStatus(false);
       }
     }
@@ -28,15 +28,7 @@ export default function ChapterInfo() {
   }, [lastScrollY]);
   return (
     <>
-      <div
-        className="general-container"
-        style={{
-          textAlign: "center",
-          width: "700px",
-          height: "auto",
-          margin: "0 auto",
-        }}
-      >
+      <div className="general-container info-box">
         <div style={{ fontWeight: "bold", fontSize: "20px" }}>
           Sau Khi Có Được Năng Lực Bá Đạo Ở Dị Giới, Tôi Cũng Vô Đối Ở Thế Giới
           Thực: Thăng Cấp Xong Thì Cuộc Đời Cũng Thay Đổi

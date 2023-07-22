@@ -6,6 +6,13 @@
   height: auto;
 }
 
+.info-box {
+  text-align: center;
+  width: 700px;
+  height: 176px;
+  margin: 0 auto;
+}
+
 .dropdown-text {
   position: relative;
   bottom: 4px;
