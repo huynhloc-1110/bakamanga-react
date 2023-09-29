@@ -9,7 +9,6 @@ import AvatarModal from "./components/AvatarModal";
 import BannerModal from "./components/BannerModal";
 import Members from "./components/Members";
 import "./styles.css";
-import EditGroupModal from "./components/EditGroupModal";
 import { ToastContainer, toast } from "react-toastify";
 
 export default function Group() {
@@ -20,7 +19,6 @@ export default function Group() {
   const [isOwner, setIsOwner] = useState(false);
   const [isMod, setIsMod] = useState(false);
   const [profileOption, setProfileOption] = useState(profileOptions[0]);
-  const [showEditGroup, setShowEditGroup] = useState(false);
   const { user } = useContext(UserContext);
   const memberId = user?.id;
   const [isUserAMember, setIsUserAMember] = useState(false);
@@ -133,17 +131,11 @@ export default function Group() {
           </div>
         </div>
         <div id="profile-buttons">
-          {isOwner && (
-            <Button
-              variant="outline-dark"
-              onClick={() => setShowEditGroup(true)}
-            >
-              Edit
-            </Button>
-          )}
           {(isOwner || isMod) && (
-            <Link to={`/manage/group/members/${groupId}`}>
-              <Button variant="outline-dark">Manage</Button>
+            <Link to={`/manage/group/${groupId}`}>
+              <Button variant="outline-dark">
+                <i className="fa-solid fa-bars-progress"></i> Manage
+              </Button>
             </Link>
           )}
           {!isUserAMember && !isOwner ? (
@@ -151,14 +143,14 @@ export default function Group() {
               variant="outline-dark"
               onClick={() => handleJoinGroup(groupId)}
             >
-              Join
+              <i className="fa-solid fa-right-from-bracket"></i> Join
             </Button>
           ) : (
             <Button
               variant="outline-dark"
               onClick={() => setShowLeaveModal(true)}
             >
-              Leave Group
+              <i className="fa-solid fa-right-from-bracket"></i> Leave
             </Button>
           )}
         </div>
@@ -183,12 +175,6 @@ export default function Group() {
           <Members groupId={groupId} groupName={groupDetails?.name} />
         )}
       </div>
-      <EditGroupModal
-        close={() => setShowEditGroup(false)}
-        show={showEditGroup}
-        groupDetails={groupDetails}
-        getGroupDetail={getGroupDetail}
-      />
       <AvatarModal
         close={() => setShowAvatarModal(false)}
         show={showAvatarModal}

@@ -10,16 +10,16 @@ import {
   Table,
 } from "react-bootstrap";
 import * as groupApi from "../../../service/api.group";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Select from "react-select";
 import { UserContext } from "../../../context/UserContext";
 import { Controller, useForm } from "react-hook-form";
 import { groupRoleOptions } from "../../../constants/groupRoles";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useCallback } from "react";
 import PaginationNoParams from "../../../components/paginationNoParams";
 
-export default function ManageMembers() {
+export default function ManageMembers({ groupId }) {
   const { user } = useContext(UserContext);
   const [targetedMember, setTargetedMember] = useState(null);
   const [message, setMessage] = useState(false);
@@ -31,11 +31,7 @@ export default function ManageMembers() {
   const [totalPages, setTotalPages] = useState(0);
   const [groupDetails, setGroupDetails] = useState(null);
 
-  const { groupId } = useParams();
-
   const roleOptions = ["Owner", "Moderator", "GroupUploader", "Member"];
-  const sortOptions = ["Manage Member", "Request Member"];
-  const [sortOption, setSortOption] = useState(sortOptions[0]);
   const toLabel = (item) => {
     return item.replace(/([A-Z])/g, " $1").trim();
   };
@@ -208,26 +204,6 @@ export default function ManageMembers() {
   }, [fetchGroupMembers, groupId]);
   return (
     <Container fluid>
-      <ToastContainer />
-      <div className="group-name">
-        <Link to={`/groups/${groupId}`}>
-          <button className="return-button">
-            <i className="fa-solid fa-arrow-left"></i>
-          </button>
-        </Link>{" "}
-        {groupDetails?.name} Group
-      </div>
-      <div style={{ paddingBottom: "20px" }}>
-        {sortOptions.map((option, index) => (
-          <Button
-            key={index}
-            variant={sortOption === option ? "dark" : "light"}
-            onClick={() => setSortOption(option)}
-          >
-            {toLabel(option)}
-          </Button>
-        ))}
-      </div>
       <Row>
         <Col xs={8}>
           <Form.Control
@@ -332,7 +308,6 @@ export default function ManageMembers() {
           onPageChange={handleChangeChapter}
         />
       </div>
-      {/* Edit modal */}
       <Modal
         show={targetedMember}
         onHide={() => {
