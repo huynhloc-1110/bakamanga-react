@@ -4,7 +4,7 @@ import PostImage from "./postImage";
 import CommentSection from "../commentSection";
 import PostStats from "./postStats";
 
-export default function PcModal({ post, close, react }) {
+export default function PcModal({ post, close, updatePosts }) {
   return (
     <>
       <Modal centered show={post} onHide={close} size="xl">
@@ -34,7 +34,7 @@ export default function PcModal({ post, close, react }) {
                     <i className="fa-solid fa-xmark" onClick={close}></i>
                   </div>
                 </div>
-                <PostStats post={post} react={react} />
+                <PostStats post={post} updatePosts={updatePosts} />
               </div>
               <div className="comment-post">
                 <CommentSection type="post" typeId={post.id} />

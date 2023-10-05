@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import PostOptions from "./postOptions";
 import * as postReactApi from "../../service/api.react";
 
-export default function PostStats({ post, react }) {
+export default function PostStats({ post, updatePosts }) {
   const postId = post?.id;
 
   const handleLikeClick = async (e) => {
@@ -17,7 +17,7 @@ export default function PostStats({ post, react }) {
         formData.append("reactFlag", nextReactFlag);
         await postReactApi.putReactPost(postId, formData);
       }
-      react(postId, nextReactFlag);
+      updatePosts({ type: "react", postId, flag: nextReactFlag });
     } catch (error) {
       if (error.response && error.response.status === 401) {
         toast.error("Please sign in to like!");
@@ -37,7 +37,7 @@ export default function PostStats({ post, react }) {
         formData.append("reactFlag", nextReactFlag);
         await postReactApi.putReactPost(postId, formData);
       }
-      react(postId, nextReactFlag);
+      updatePosts({ type: "react", postId, flag: nextReactFlag });
     } catch (error) {
       if (error.response && error.response.status === 401) {
         toast.error("Please sign in to dislike!");

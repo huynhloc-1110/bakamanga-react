@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Button, ToastContainer } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import * as postApi from "../../../service/api.post";
@@ -9,10 +9,11 @@ import PcPost from "../../../components/post/pcPost";
 import PcModal from "../../../components/post/pcModal";
 import MobilePost from "../../../components/post/mobilePost";
 import MobileModal from "../../../components/post/mobileModal";
+import postsReducer from "../../../components/post/postsReducer";
 
 export default function Community() {
   const [showCreatePost, setShowCreatePost] = useState(false);
-  const [posts, setPosts] = useState(null);
+  const [posts, updatePosts] = useReducer(postsReducer, []);
   const { userId } = useParams();
   const { user } = useContext(UserContext);
   const [isMobile, setIsMobile] = useState(false);
@@ -22,52 +23,18 @@ export default function Community() {
     : null;
 
   const handleCreatePost = (newPost) => {
-    setPosts((prevPosts) => [newPost, ...prevPosts]);
+    updatePosts({ type: "add", newPost });
   };
 
   const handleSeeMorePost = async (userId, createdAtCursor) => {
     try {
-      const newPosts = await postApi.getPosts(userId, {
+      const response = await postApi.getPosts(userId, {
         createdAtCursor: createdAtCursor?.createdAt,
       });
-      setPosts([...posts, ...newPosts.data]);
+      updatePosts({ type: "fetch", newPosts: response.data });
     } catch (error) {
       console.error("Error fetching more members:", error);
     }
-  };
-
-  const handleReactPost = (postId, selectedReact) => {
-    const nextPosts = [...posts];
-    const post = nextPosts.find((post) => post.id === postId);
-    const prevReactFlag = post.userReactFlag;
-
-    if (selectedReact === "Like") {
-      if (prevReactFlag === "Like") {
-        post.likeCount--;
-        post.userReactFlag = "None";
-      } else if (prevReactFlag === "Dislike") {
-        post.likeCount++;
-        post.dislikeCount--;
-        post.userReactFlag = "Like";
-      } else {
-        post.likeCount++;
-        post.userReactFlag = "Like";
-      }
-    } else {
-      if (prevReactFlag === "Like") {
-        post.likeCount--;
-        post.dislikeCount++;
-        post.userReactFlag = "Dislike";
-      } else if (prevReactFlag === "Dislike") {
-        post.dislikeCount--;
-        post.userReactFlag = "None";
-      } else {
-        post.dislikeCount++;
-        post.userReactFlag = "Dislike";
-      }
-    }
-
-    setPosts(nextPosts);
   };
 
   useEffect(() => {
@@ -89,8 +56,9 @@ export default function Community() {
 
   useEffect(() => {
     const fetchUserPosts = async (userId) => {
-      const res = await postApi.getPosts(userId);
-      setPosts(res.data);
+      const response = await postApi.getPosts(userId);
+      console.log("click");
+      updatePosts({ type: "fetch", newPosts: response.data });
     };
     fetchUserPosts(userId);
   }, [userId]);
@@ -115,17 +83,16 @@ export default function Community() {
           isMobile ? (
             <MobilePost
               key={post.id}
-              post={post}
               open={() => setTargetedPostId(post.id)}
-              react={handleReactPost}
+              post={post}
+              updatePosts={updatePosts}
             />
           ) : (
             <PcPost
               key={post.id}
-              post={post}
               open={() => setTargetedPostId(post.id)}
-              react={handleReactPost}
-              handleSeeMorePost={handleSeeMorePost}
+              post={post}
+              updatePosts={updatePosts}
             />
           )
         )}
@@ -135,13 +102,13 @@ export default function Community() {
           <MobileModal
             post={targetPost}
             close={() => setTargetedPostId(null)}
-            react={handleReactPost}
+            updatePosts={updatePosts}
           />
         ) : (
           <PcModal
             post={targetPost}
             close={() => setTargetedPostId(null)}
-            react={handleReactPost}
+            updatePosts={updatePosts}
           />
         ))}
 
