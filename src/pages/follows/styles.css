@@ -1,0 +1,15 @@
+.followed-user-avatar {
+  width: 150px;
+  height: auto;
+}
+
+.followed-username {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.follow-user-container {
+  display: flex;
+  justify-content: left;
+  padding: 10px 20px;
+}

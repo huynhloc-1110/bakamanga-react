@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Col, Container, FormSelect, Row, Form } from "react-bootstrap";
-import CountryFlag from "../../components/countryFlag";
+import CountryFlag from "../../../components/countryFlag";
 
 export default function FollowedManga() {
   return (
