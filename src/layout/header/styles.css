@@ -1,0 +1,88 @@
+@media only screen and (min-width: 1000px) {
+  /* Styles for laptop and computer screens */
+  #offcanvasNavbar-expand-false {
+    /* Your styles here */
+    top: 50px;
+    right: 30px;
+    width: 20%;
+    bottom: auto;
+    overflow: hidden auto;
+    border-radius: 10px;
+  }
+  .offcanvas-header .btn-close {
+    display: none;
+  }
+  .login-cover {
+    right: 50%;
+  }
+}
+
+.offcanvas-body::-webkit-scrollbar {
+  display: none;
+}
+
+.offcanvas-header .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 5%;
+  transform: translateY(-50%);
+}
+
+nav.navbar {
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: 0.32s ease-in-out;
+}
+
+nav.navbar.scrolled {
+  background-color: white;
+}
+
+.offcanvas-header .avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.notification-icon {
+  font-size: 25px;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.notification-number {
+  margin: -20px 0 0 -30px;
+  cursor: pointer;
+}
+
+.mark-read-icon.notification {
+  display: flex;
+  margin: 0 2px 0 5px;
+  align-items: center;
+}
+
+.notification-container {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.notification-container:hover {
+  background-color: #f2f2f2;
+}
+
+.notification.not-read {
+  font-weight: bold;
+}
+
+.notification-button {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.notification-button > button {
+  flex-grow: 1;
+  flex-shrink: 0;
+}

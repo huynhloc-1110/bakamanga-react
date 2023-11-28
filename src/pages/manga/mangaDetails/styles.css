@@ -1,0 +1,134 @@
+.banner {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.banner h1 {
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.banner p {
+  color: black;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+
+.banner .cover-container {
+  padding: 0 50px;
+}
+
+/* jumping cover */
+.banner .coverPath {
+  border-radius: 5%;
+  width: 100%;
+  aspect-ratio: 1/1.41;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  animation: updown 3s ease-in-out infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+/* end jumping cover */
+
+#dropdown-basic {
+  outline: none !important;
+  outline-offset: none !important;
+  padding: 0 !important;
+  font-size: 20px;
+  outline: none;
+  outline-offset: none;
+}
+#dropdown-basic.show,
+#dropdown-basic,
+#dropdown-basic:hover {
+  border: none !important;
+}
+
+.btn-resize-description {
+  border: none;
+  background: none;
+  color: #004759;
+  font-weight: bold;
+}
+.btn-resize-description:hover {
+  text-decoration: underline;
+}
+
+.banner .under-cover {
+  border: 1px solid lightgray;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 40px 5px 15px 5px;
+  margin-top: -25px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+}
+
+.banner .btn-under-cover {
+  background: none;
+  border-width: 0;
+  font-size: 20px;
+}
+
+.chapter-row:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+#show-chapters p {
+  margin: 0.5rem 0;
+}
+
+.btn-under-cover.btn-report:hover {
+  color: red;
+}
+
+.btn-under-cover.btn-add:hover {
+  color: blue;
+}
+.btn-under-cover.btn-upload:hover {
+  color: green;
+}
+
+.viewed p,
+.chapter-viewed {
+  color: lightgray;
+}
+
+@media screen and (max-width: 767px) {
+  .banner h1 {
+    font-size: 32px;
+  }
+
+  #show-chapters .chapter-name {
+    font-weight: bold;
+  }
+}
+
+#btn-start-reading {
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 8px;
+}

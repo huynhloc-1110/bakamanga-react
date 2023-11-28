@@ -1,0 +1,95 @@
+.chapter-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.chapter-header {
+  text-align: center;
+  margin: 0 20px 20px;
+}
+
+.chapter-header .manga-title {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+}
+
+.chapter-header .manga-title:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.chapter-header .chapter-title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .chapter-header .chapter-title {
+    font-size: 20px;
+  }
+
+  .chapter-header .manga-title {
+    font-size: 18px;
+  }
+}
+
+.chapter-nav-button {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+
+.chapter-nav {
+  position: fixed;
+  bottom: 75px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.circle-button {
+  margin: 2px 0;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #212529;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.circle-button.disabled {
+  pointer-events: none;
+  background-color: gray;
+}
+
+.circle-button:hover {
+  transform: scale(1.1);
+}
+
+.chapter-nav .dropstart .btn {
+  border-radius: 50%;
+  --bs-btn-bg: #212529;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-bg: #212529;
+  --bs-btn-active-bg: #212529;
+  --bs-btn-hover-border-color: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.chapter-dropdown {
+  min-width: auto !important;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.chapter-dropdown::-webkit-scrollbar {
+  display: none;
+}

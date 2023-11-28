@@ -1,0 +1,66 @@
+.nav-menu {
+  background-color: aliceblue;
+  width: 230px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden auto;
+  left: 0;
+  top: 0;
+  position: fixed;
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.nav-menu.hide {
+  transform: translateX(-100%);
+}
+
+.nav-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-menu button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-menu .nav-text a {
+  color: #151414;
+  font-size: 16px;
+}
+
+.nav-menu hr.sidebar-divider {
+  margin: 0rem 2rem 0.5rem;
+}
+
+.nav-menu .sidebar-title {
+  font-weight: 800;
+  padding: 10px 0 0 20px;
+  user-select: none;
+}
+
+.nav-menu .sidebar-heading a:hover,
+.nav-menu .nav-text a:hover {
+  background-color: black !important;
+  color: white;
+}
+
+.nav-menu .sidebar-heading {
+  font-weight: 800;
+  padding-bottom: 0px !important;
+}
+
+.nav-menu .drop-item {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* Define the state when the dropdown items are visible */
+.nav-menu .drop-item.active {
+  max-height: 100px;
+  transition: max-height 0.5s ease-in-out;
+}

@@ -1,0 +1,15 @@
+.edit-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.edit-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-label span {
+  word-wrap: break-word;
+}

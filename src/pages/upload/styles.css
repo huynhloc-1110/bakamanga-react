@@ -1,0 +1,252 @@
+.return-button {
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  padding: 2px 10px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.return-button:hover {
+  background-color: #dfdfdf;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.image-container .input-pages {
+  width: 130px;
+  height: 184px;
+  border: 1px dashed grey;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  margin: 12px;
+  transition: all 0.1s ease-in;
+}
+
+.image-container .input-pages:hover {
+  background-color: #49494946;
+}
+
+.pages-upload-card {
+  position: relative;
+  padding: 12px;
+}
+
+.page {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+  width: 130px;
+  height: 184px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: all 0.1s ease-in-out;
+}
+
+.pages-upload-card .image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.pages-upload-card .delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  color: white;
+  border: none;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pages-upload-card .delete-button:hover {
+  background-color: #494949;
+}
+
+.pages-upload-card .drag-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  border: none;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 15px;
+  background-color: #494949;
+  color: #fff;
+  border-radius: 11px;
+  max-width: calc(100% - 32px);
+  padding: 2px 8px;
+  overflow: hidden;
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.page.dragging {
+  /* pointer-events: none; */
+  /* touch-action: none;
+  -ms-touch-action: none; */
+  border: 1px dashed grey;
+  box-shadow: none;
+  animation: wiggle 0.3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+.image-overlay {
+  position: fixed;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the overlay is on top of other content */
+}
+
+.centered-image {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.arrow-overlay {
+  position: fixed;
+  z-index: 1001;
+}
+
+.arrow {
+  align-items: center;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  font-size: 3rem;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  width: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.arrow.left {
+  background: radial-gradient(farthest-side at left, #00000080, #00000000);
+  left: 0;
+}
+
+.arrow.left:hover {
+  opacity: 1;
+}
+
+.arrow.right {
+  background: radial-gradient(farthest-side at right, #00000080, #00000000);
+  flex-direction: row-reverse;
+  right: 0;
+}
+
+.arrow.right:hover {
+  opacity: 1;
+}
+
+.close-overlay {
+  display: flex;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 1001;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.drop-zone {
+  position: fixed;
+  display: flex;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgb(77, 77, 152);
+  font-size: 20px;
+  text-shadow: 0px 3px 9px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.446);
+  justify-content: center;
+  align-items: center;
+  z-index: 1002;
+}
+
+.drop-zone.visible {
+  visibility: visible;
+}
+
+.new-to-you.edit-chapter-button {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 15px;
+}
+
+@media (max-width: 767px) {
+  .arrow {
+    background: none !important;
+  }
+
+  .arrow i {
+    display: none !important;
+  }
+
+  .close-overlay {
+    font-size: 2rem;
+  }
+}

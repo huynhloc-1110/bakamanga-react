@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
+import Body from "./layout/body";
+import { useState } from "react";
+import Header from "./layout/header";
+import SideBar from "./layout/sidebar";
+import { ToastContainer } from "react-toastify";
 
-function App() {
+export default function App() {
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1080) {
+        setShowSidebar(false);
+      } else {
+        setShowSidebar(true);
+      }
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer />
+      <div
+        style={{
+          marginLeft: window.innerWidth > 1080 && showSidebar ? "230px" : "0",
+          transition: "margin-left 0.3s ease-in-out",
+        }}
+      >
+        <Body />
+      </div>
+      <Header showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
+      <SideBar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
+    </>
   );
 }
-
-export default App;

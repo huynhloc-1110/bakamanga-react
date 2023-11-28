@@ -1,0 +1,23 @@
+/* not show category in mobile */
+#manga-option .manga-category {
+  display: none;
+}
+
+.manga-title {
+  display: inline;
+}
+
+@media screen and (min-width: 767px) {
+  #manga-option .manga-category {
+    display: block;
+    margin: 10px 0 6px 0;
+  }
+
+  #manga-option .manga-title {
+    font-size: 24px;
+  }
+}
+
+#manga-option .manga-image {
+  aspect-ratio: 1/1.41;
+}

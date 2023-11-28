@@ -1,0 +1,43 @@
+.multi-select {
+  position: relative;
+}
+
+.multi-select .dropdown {
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 100%;
+  max-height: 120px;
+  overflow-y: auto;
+}
+.multi-select .dropdown p {
+  padding: 5px;
+  margin-bottom: 0% !important;
+}
+
+.multi-select .dropdown p:hover {
+  background-color: gray;
+  color: white;
+}
+
+.multi-select .option {
+  display: block;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.multi-select .selected-option {
+  display: inline-flex;
+  align-items: center;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 4px;
+  padding: 3px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+

@@ -1,0 +1,78 @@
+.box .image {
+  position: relative;
+  border-radius: 5%;
+  border: black;
+  overflow: hidden;
+  margin-bottom: 24px;
+  aspect-ratio: 1/1.41;
+}
+
+.box .image::before {
+  content: "";
+  background: linear-gradient(90.21deg, white -5.91%, grey 111.58%);
+  opacity: 0.85;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  transition: 0.4s ease-in;
+}
+
+.box .image:hover::before {
+  height: 100%;
+}
+
+.box .text {
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.box .image:hover .text {
+  top: 50%;
+  opacity: 1;
+}
+
+.box .text h4 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.1em;
+}
+
+.box .text span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+}
+
+@media screen and (max-width: 767px) {
+  .box .text h4 {
+    font-size: 20px;
+  }
+
+  .box .text span {
+    font-size: 12px;
+  }
+}
+
+.box .cover {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 767px), (max-width: 993px) {
+  .box .text h4 {
+    font-size: 22px;
+  }
+
+  .box .text span {
+    font-size: 12px;
+  }
+}
